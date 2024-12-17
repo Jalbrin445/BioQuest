@@ -1,13 +1,15 @@
 # Archivo para las características del enemigo
 
-
+import os
 import pygame
 import random
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 class Enemy(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
-        self.image = pygame.image.load("assets\\images\\roca2.png")
+        self.image = pygame.image.load(os.path.join(BASE_DIR,"assets\\images\\roca2.png"))
         self.image = pygame.transform.smoothscale(self.image, (50, 40))
         self.rect = self.image.get_rect()
         self.rect.x = random.randint(0, 800 - self.rect.width)  # Ubicación aleatoria en el eje x

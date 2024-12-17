@@ -13,7 +13,7 @@ HEART_IMAGE = pygame.transform.scale(HEART_IMAGE, (30, 30))
 class Player(pygame.sprite.Sprite): 
     def __init__(self):
         super().__init__()
-        self.image = utils.load_image("assets\\images\\avion2.png").convert_alpha()
+        self.image = utils.load_image(os.path.join(BASE_DIR,"assets\\images\\avion2.png")).convert_alpha()
         self.image = pygame.transform.smoothscale(self.image, (50, 40))
         self.rect = self.image.get_rect(center=(400, 500))
         self.lives = 3 

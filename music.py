@@ -2,6 +2,7 @@
 
 
 import pygame
+import os
 
 pygame.init()
 pygame.mixer.init() # Carga de sonidos
@@ -18,5 +19,6 @@ musica_inicio = "assets\\sounds\\A_Binary_Collision.mp3" # sonido menú de inici
 musica_juego = "assets\\sounds\\pantera_rosa.mp3" # sonido en estado playing
 # sonido_colision = pygame.mixer.Sound("\\Users\\Juan\\Desktop\\AVBioquest\\Prototipo6_UsoPygameAndSys\\Game_Over_Sound_Effect.mp3") # sonido de colisión
 musica_gameover = "assets\\sounds\\Game_Over_Sound_Effect.mp3" # sonido game over
-sonido_colision = pygame.mixer.Sound("assets\\sounds\\collision.mp3")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+sonido_colision = pygame.mixer.Sound(os.path.join(BASE_DIR, "assets\\sounds\\collision.mp3"))
 
