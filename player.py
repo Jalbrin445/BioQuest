@@ -1,12 +1,13 @@
 # Características del jugador (mover, cargar imagen, bajar vidas, dibujar el jugador en pantalla y restaurar estado).
 
+import os
 import pygame
 import settings
 import utils 
 
 # Dibujar vidas del jugador
-
-HEART_IMAGE = utils.load_image("assets\\images\\heart.png")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+HEART_IMAGE = utils.load_image(os.path.join(BASE_DIR, "assets\\images\\heart.png"))
 HEART_IMAGE = pygame.transform.scale(HEART_IMAGE, (30, 30))
 
 class Player(pygame.sprite.Sprite): 
