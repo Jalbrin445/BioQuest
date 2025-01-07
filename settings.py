@@ -13,11 +13,12 @@ BACKGROUND_COLOR = ((0, 100, 200)) #Color de fondo para cuando se este jugando.
 
 # Configuración de colores Para el menú de inicio:
 MENU_BACKGROUND_COLOR = (0, 150, 200) # Azul fondo del menu inicio de juego
+BACKGROUND_SPEED = 0.5
 COLOR_BOTON = (255, 255, 0)  # Amarillo
 TEXT_COLOR = (0, 0, 0) # Negro
 PICTURE_COLOR = (255, 255, 255) # Blanco 
 
-TEXT_BOX = pygame.Rect(300, 250, 300, 60)#cuadro de texto
+TEXT_BOX = pygame.Rect(200, 480, 300, 60)#cuadro de texto
 
-WAITING_TIME = 27000 # tiempo de espera entre preguntas
+WAITING_TIME = 2000 # tiempo de espera entre preguntas
 

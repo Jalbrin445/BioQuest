@@ -6,8 +6,9 @@ import settings
 # Caracterísitcas de los botones usados en este videojuego.
 pygame.init()
 
-fuente = pygame.font.Font(None, 48) # Texto más grande
-fuentem = pygame.font.Font(None, 28) # Texto menos grande
+# Fuentes
+fontbm = pygame.font.Font(None, 38) # Texto menos grande
+fontb = pygame.font.Font(None, 48) # Texto más grande
 
 class DibujarTexto:
     def dibujar_texto(texto, fuente, color, superficie, x, y):
@@ -22,7 +23,7 @@ class Boton:
 
     def dibujar(self, superficie):
         pygame.draw.rect(superficie, settings.COLOR_BOTON, self.rect)
-        DibujarTexto.dibujar_texto(self.texto, fuente, settings.TEXT_COLOR, superficie, self.rect.centerx, self.rect.centery)
+        DibujarTexto.dibujar_texto(self.texto, fontb, settings.TEXT_COLOR, superficie, self.rect.centerx, self.rect.centery)
 
     def clicado(self, pos):
         return self.rect.collidepoint(pos)

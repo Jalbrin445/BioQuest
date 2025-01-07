@@ -24,6 +24,8 @@
 
 6. Música dinamica de acuerdo al estado del juego.
 
+7. Sistema de colisiones, explosiones y disparos.
+
 ## **Requsitos del sistema**
 
 - **Python 3.10** o superior.
@@ -74,7 +76,6 @@ BioQuest
 - Añadir nuevos niveles de dificultad.
 - Añadir dificultad progresiva a lo largo de un nivel.
 - Añadir más enemigos.
-- Añadir sistema de disparos al jugador.
 
 ## **Controles del juego**
 
