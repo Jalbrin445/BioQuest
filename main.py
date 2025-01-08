@@ -47,11 +47,12 @@ while game_running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             game_running = False
-        elif event.type == pygame.KEYDOWN:
+        elif event.type == pygame.KEYDOWN and states == "playing":
             if event.key == pygame.K_SPACE:
                 # Crea un nuevo proyectil y lo añade al grupo
                 new_bullet = player.Bullet(player1.rect.centerx, player1.rect.top)
                 bullets.add(new_bullet)
+                music.sonido_laser.play()
 
         if states == "menu":
 
@@ -67,6 +68,7 @@ while game_running:
                 # Comprobar la respuesta: 
                 if user_answer.lower() == questions_manager.current_question["answer"].lower(): 
                     print("¡Respuesta correcta!") # si la respuesta es correcta
+                    states = "playing"
 
                 else:
                     print("Respuesta incorrecta, pierdes una vida.") # si la respuesta no es correcta 
@@ -122,9 +124,9 @@ while game_running:
         buttons.DibujarTexto.dibujar_texto("para salir del juego", buttons.fontb, (255, 255, 255), screen, 450, 540)
         buttons.DibujarTexto.dibujar_texto("Responde todas las preguntas en", buttons.fontb, (255, 255, 255), screen, 450, 400)
         buttons.DibujarTexto.dibujar_texto("Mayúscula y sin tildes", buttons.fontb, (255, 255, 255), screen, 450, 440)
-        buttons.DibujarTexto.dibujar_texto("Controles:", buttons.fontbm, (255, 255, 255), screen, 750, 100)
-        buttons.DibujarTexto.dibujar_texto("W: Arriba, S: Abajo", buttons.fontbm, (255, 255, 255), screen, 750, 120)
-        buttons.DibujarTexto.dibujar_texto("A: Izquierda, D: Derecha", buttons.fontbm,  (255, 255, 255), screen, 750, 140)
+        buttons.DibujarTexto.dibujar_texto("Controles:", buttons.fontbm, (255, 255, 255), screen, 725, 100)
+        buttons.DibujarTexto.dibujar_texto("W: Arriba, S: Abajo", buttons.fontbm, (255, 255, 255), screen, 725, 120)
+        buttons.DibujarTexto.dibujar_texto("A: Izquierda, D: Derecha", buttons.fontbm,  (255, 255, 255), screen, 725, 140)
         buttons.home_button.dibujar(screen)
         buttons.exit_button.dibujar(screen)
     
@@ -162,10 +164,10 @@ while game_running:
         # Teclas presionadas para mover al jugador
         keys = pygame.key.get_pressed()
         #movimiento del jugador
-        dx = (keys[pygame.K_d] - keys[pygame.K_a]) * settings.PLAYER_SPEED 
-        dy = (keys[pygame.K_s] - keys[pygame.K_w]) * settings.PLAYER_SPEED
-
-
+        
+        dx = (keys[pygame.K_d] - keys[pygame.K_a]) * settings.PLAYER_SPEED or (keys[pygame.K_RIGHT] - keys[pygame.K_LEFT]) * settings.PLAYER_SPEED
+        dy = (keys[pygame.K_s] - keys[pygame.K_w]) * settings.PLAYER_SPEED or (keys[pygame.K_DOWN] - keys[pygame.K_UP]) * settings.PLAYER_SPEED
+        
         # Codigo ejecutable si no esta en el estado de pausa o game over.
         if not paused and not states == "game_over":
             
@@ -187,6 +189,7 @@ while game_running:
                 for ec in enemyc:
                     explosion = player.Burst(ec.rect.center)
                     explosions.add(explosion)
+                    music.sonido_explosion.play()
                     ec.reset_position()
             
             # Actualiza y dibuja enemigos

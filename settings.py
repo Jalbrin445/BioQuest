@@ -20,5 +20,5 @@ PICTURE_COLOR = (255, 255, 255) # Blanco
 
 TEXT_BOX = pygame.Rect(200, 480, 300, 60)#cuadro de texto
 
-WAITING_TIME = 2000 # tiempo de espera entre preguntas
+WAITING_TIME = 27000 # tiempo de espera entre preguntas
 

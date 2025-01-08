@@ -21,4 +21,6 @@ music_game = os.path.join(BASE_DIR,"assets\\sounds\\pantera_rosa.mp3") # sonido 
 # sonido_colision = pygame.mixer.Sound("\\Users\\Juan\\Desktop\\AVBioquest\\Prototipo6_UsoPygameAndSys\\Game_Over_Sound_Effect.mp3") # sonido de colisión
 music_gameover = os.path.join(BASE_DIR,"assets\\sounds\\Game_Over_Sound_Effect.mp3") # sonido game over
 sonido_colision = pygame.mixer.Sound(os.path.join(BASE_DIR, "assets\\sounds\\collision.mp3"))
+sonido_laser = pygame.mixer.Sound(os.path.join(BASE_DIR, "assets\\sounds\\assets_laser5.ogg"))
+sonido_explosion = pygame.mixer.Sound(os.path.join(BASE_DIR, "assets\\sounds\\assets_explosion.wav"))
 
